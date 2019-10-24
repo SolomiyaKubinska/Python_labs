@@ -1,16 +1,17 @@
 def decorator_for_html_tags(tags=""):
     def decorator(func):
-        def wrap(string):
-            print("<" + tags + "> " + str(func(string)) + " </" + tags + ">")
+        def wrap(str0):
+            print("<" + tags + "> " + func(str0) + " </" + tags + ">")
         return wrap
     return decorator
 
 @decorator_for_html_tags("div")
-def list(string):
-    return string
+def line(str):
+    return str
 
 def main():
-    return list(input("Enter text for html tags: "))
+    a = input("Enter text for html tags: ")
+    return line(a)
 
 if __name__ == '__main__':
     main()
