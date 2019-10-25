@@ -6,10 +6,14 @@ def lst(n, a, b):
         lst0.append(random.randint(a, b))
     return lst0
 
-def main():
+def input_data():
     n = int(input("Enter number: "))
     a = int(input("Enter the beginning: "))
     b = int(input("Enter the ending: "))
+    return n, a, b
+
+def main():
+    n, a, b = input_data()
     l = lst(n, a, b)
     print("List - " + str(l))
     print("Sum of the list - " + str(sum(l)))
