@@ -1,15 +1,8 @@
 # Dependency injection
-class GoogleServers:
-    pass
+class GoogleMaps:
+    def __init__(self, data):
+        self.data = data
 
-class GoogleCalendar(GoogleServers):
-    pass
-
-class GoogleDrive(GoogleServers):
-    pass
-
-class GoogleSheet(GoogleServers):
-    pass
-
-class GoogleMaps(GoogleServers):
-    pass
+    def get(self):
+        # getting data
+        pass

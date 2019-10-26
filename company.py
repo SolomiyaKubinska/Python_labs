@@ -1,4 +1,8 @@
 # Dependency injection
-class GoogleServers:
-    def __init__(self, server):# initializer
-        self.server = server  # GoogleServers is injected
+class GoogleCompany:
+    def __init__(self, server):
+        self.server = server
+
+    def use(self):
+        # using a google server
+        pass
