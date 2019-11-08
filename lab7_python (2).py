@@ -2,25 +2,23 @@ from urllib import request
 
 def download_file(url):
     file = request.urlopen(url)
-    file_text = str(file.read()).split("\\n")
-
-    new_file = open("file.txt", "w")
-    for text in file_text:
-        new_file.write(text + "\n")
-    new_file.close()
-    return new_file.name
+    CHUNK = 1024 * 512
+    while 1:
+        file_text = str(file.read(CHUNK)).split("\\n")
+        if not file_text:
+            break
+        return file_text
 
 def count_stats(file):
     dictionary = {}
-    with open(file) as f:
-        for line in f:
-            line = line.strip().lower()
-            words = line.split(' ')
-            for word in words:
-                if word in dictionary:
-                    dictionary[word] += 1
-                else:
-                    dictionary[word] = 1
+    for line in file:
+        line = line.strip().lower()
+        words = line.split(' ')
+        for word in words:
+            if word in dictionary:
+                dictionary[word] += 1
+            else:
+                dictionary[word] = 1
     for word in dictionary.keys():
         print(f"{word} : {dictionary[word]}")
     return dictionary
